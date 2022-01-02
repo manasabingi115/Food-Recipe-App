@@ -37,7 +37,7 @@ export default function App() {
             value="Search"
           ></input>
         </form>
-        {data.length >= 1 ? <Recipes /> : null}
+        {data.length >= 1 ? <Recipes data={data} /> : null}
       </center>
     </div>
   );

@@ -1,10 +1,9 @@
 import React from "react";
 
-export default function Recipes({ data }) {
+export default function Recipes() {
   return (
     <div>
-      <div>Recipes</div>
-      <div className="row"></div>
+      <div>recipe</div>
     </div>
   );
 }

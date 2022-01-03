@@ -8,14 +8,12 @@ import {
 } from "mdb-react-ui-kit";
 
 export default function Product({ data }) {
-  console.log(data[0].recipe.label);
-
   return (
     <div>
-      <ul>
+      <div className="row">
         {data.map((data, index) => (
-          <li key={index}>
-            <MDBCard style={{ maxWidth: "22rem" }}>
+          <div className="col-md-3" key={index}>
+            <MDBCard style={{ maxWidth: "22rem", minHeight: "33rem" }}>
               <MDBCardImage
                 src={data.recipe.image}
                 position="top"
@@ -28,12 +26,12 @@ export default function Product({ data }) {
                 <MDBCardText>
                   Total Amount of Calories: {Math.round(data.recipe.calories)}
                 </MDBCardText>
-                <button>Buy</button>
+                <button className="btn btn-primary">Buy</button>
               </MDBCardBody>
             </MDBCard>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

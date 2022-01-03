@@ -1,6 +1,5 @@
 import "./styles.css";
 import React from "react";
-import Recipes from "./Recipes";
 import Product from "./Product";
 
 export default function App() {
@@ -14,11 +13,10 @@ export default function App() {
     e.preventDefault();
     console.log(search);
     fetch(
-      `https://api.edamam.com/search?q=${search}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=9&calories=591-722&health=alcohol-free`
+      `https://api.edamam.com/search?q=${search}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=20&calories=591-722&health=alcohol-free`
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.hits);
         setData(data.hits);
       });
   };
@@ -39,11 +37,10 @@ export default function App() {
             type="submit"
             className="btn btn-primary"
             value="Search"
-            onSubmit={Product}
           ></input>
+          <br /> <br />
         </form>
-        {data.length >= 1 ? <Recipes /> : null}
-        {data.length >= 1 ? <Product data={data} key={data.id} /> : null}
+        {data.length >= 1 ? <Product data={data} key={data.id} /> : ""}
       </center>
     </div>
   );

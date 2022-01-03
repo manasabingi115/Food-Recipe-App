@@ -43,7 +43,7 @@ export default function App() {
           ></input>
         </form>
         {data.length >= 1 ? <Recipes /> : null}
-        {data.length >= 1 ? <Product /> : null}
+        {data.length >= 1 ? <Product data={data} key={data.id} /> : null}
       </center>
     </div>
   );

@@ -7,22 +7,33 @@ import {
   MDBCardImage
 } from "mdb-react-ui-kit";
 
-export default function Product() {
+export default function Product({ data }) {
+  console.log(data[0].recipe.label);
+
   return (
-    <MDBCard style={{ maxWidth: "22rem" }}>
-      <MDBCardImage
-        src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
-        position="top"
-        alt="Fissure in Sandstone"
-      />
-      <MDBCardBody>
-        <MDBCardTitle>Card title</MDBCardTitle>
-        <MDBCardText>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </MDBCardText>
-        <button>Button</button>
-      </MDBCardBody>
-    </MDBCard>
+    <div>
+      <ul>
+        {data.map((data, index) => (
+          <li key={index}>
+            <MDBCard style={{ maxWidth: "22rem" }}>
+              <MDBCardImage
+                src={data.recipe.image}
+                position="top"
+                alt="Fissure in Sandstone"
+              />
+              <MDBCardBody>
+                <MDBCardTitle>
+                  <strong>{data.recipe.label}</strong>
+                </MDBCardTitle>
+                <MDBCardText>
+                  Total Amount of Calories: {Math.round(data.recipe.calories)}
+                </MDBCardText>
+                <button>Buy</button>
+              </MDBCardBody>
+            </MDBCard>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

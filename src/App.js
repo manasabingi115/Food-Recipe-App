@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div className="App">
       <center>
-        <h1>Food Recipe App</h1>
+        <h1 style={{ color: "black" }}>Food Recipe App</h1>
         <form onSubmit={submitHandler}>
           <input
             type="text"
